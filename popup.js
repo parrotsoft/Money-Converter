@@ -6,7 +6,15 @@ $(function() {
         e.preventDefault();
         // alert($('#value').cleanVal().val());
         const type = validateType(typeM.value);
-        getData(type, mount.value);
+        if (mount.value) {
+            if (isNaN(mount.value)) {
+                alert('Please enter a value.');
+            } else {
+                getData(type, mount.value);
+            }
+        } else  {
+            alert('Please enter a value.');
+        }
     }
 
     function validateType(tp) {
